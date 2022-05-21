@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awdarmashı</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <h1>Onlayn sózlik</h1>
+            <hr>
+            <p>Tezlik, qolaylıq, biypul awdarmashı</p>
+        </div>
+
+        <div class="search">
+            <p>Inglizshe-Qaraqalpaqsha, Qaraqalpaqsha-Inglizcha</p>
+            <form method="get" action="/" style="width: 100%; margin-left: 70px;">
+                <input name="q" value="{{q}}" type="text" placeholder="Sózdi kiritiń...">
+            </form>
+        </div>
+
+        <div class="result">
+            <span>Nátiyje:</span>
+            <table>
+                <tr>
+                    <th>Inglizshe</th>
+                    <th>Qaraqalpaqsha</th>
+                </tr>
+                {% if natija %}
+                {% for tarjima in natija %}
+                <tr>
+                    <td>{{ tarjima.inglizcha }}</td>
+                    <td>{{ tarjima.uzbekcha }}</td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
